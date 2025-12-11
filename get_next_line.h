@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntassin <ntassin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 15:42:46 by ntassin           #+#    #+#             */
-/*   Updated: 2025/12/11 15:47:43 by ntassin          ###   ########.fr       */
+/*   Created: 2025/12/11 15:48:01 by ntassin           #+#    #+#             */
+/*   Updated: 2025/12/11 16:17:45 by ntassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*get_next_line(int fd)
-{
-	// Implementation of get_next_line function
-	return (NULL);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include <stdlib.h>
+# include <unistd.h>
+
+char	*get_next_line(int fd);
+
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+
+#endif
