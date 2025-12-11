@@ -6,7 +6,7 @@
 /*   By: ntassin <ntassin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 15:42:46 by ntassin           #+#    #+#             */
-/*   Updated: 2025/12/11 16:16:22 by ntassin          ###   ########.fr       */
+/*   Updated: 2025/12/11 17:24:18 by ntassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*read_and_stash(int fd, char *stash)
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
-	while (!ft_strchr(stash, '\n') && bytes_read >= 0)
+	while (!ft_strchr(stash, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
@@ -39,7 +39,7 @@ static char	*read_and_stash(int fd, char *stash)
 	return (stash);
 }
 
-static char *extract_line(char *stash)
+static char	*extract_line(char *stash)
 {
 	char	*line;
 	size_t	i;
@@ -66,7 +66,6 @@ static char *extract_line(char *stash)
 	line[i] = '\0';
 	return (line);
 }
-
 
 static char	*clean_stash(char *stash)
 {
@@ -99,7 +98,6 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	char		*line;
 
-	stash = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stash = read_and_stash(fd, stash);
