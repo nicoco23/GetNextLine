@@ -76,9 +76,7 @@ GetNextLine/
 ├── get_next_line_bonus.c        # Bonus: multi-fd support
 ├── get_next_line_bonus.h        # Bonus header
 ├── get_next_line_utils_bonus.c  # Bonus utilities
-├── main.c                       # Test file (simple)
-├── main_test.c                  # Test file (detailed)
-├── main_bonus.c                 # Bonus test file
+├── get_next_line.pdf            # Project subject (42 School)
 └── test.txt                     # Sample test file
 ```
 
@@ -87,8 +85,12 @@ GetNextLine/
 | File | Description |
 |------|-------------|
 | **get_next_line.c** | Core implementation with `read_and_stash`, `extract_line`, and `clean_stash` functions |
+| **get_next_line.h** | Header with function prototypes and BUFFER_SIZE definition |
 | **get_next_line_utils.c** | Utility functions: `ft_strlen`, `ft_strchr`, `ft_strjoin` |
 | **get_next_line_bonus.c** | Enhanced version supporting multiple file descriptors with array of static variables |
+| **get_next_line_bonus.h** | Bonus header with OPEN_MAX definition |
+| **get_next_line_utils_bonus.c** | Bonus utility functions (identical to mandatory) |
+| **get_next_line.pdf** | Official 42 project subject with requirements |
 | **test.txt** | Sample text file for testing ("Petit ours brun" lyrics) |
 
 ---
