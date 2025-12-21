@@ -6,7 +6,7 @@
 /*   By: ntassin <ntassin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 15:42:46 by ntassin           #+#    #+#             */
-/*   Updated: 2025/12/11 17:24:18 by ntassin          ###   ########.fr       */
+/*   Updated: 2025/12/21 13:46:42 by ntassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ static char	*clean_stash(char *stash)
 	i++;
 	new_stash = malloc(ft_strlen(stash + i) + 1);
 	if (!new_stash)
+	{
+		free(stash);
 		return (NULL);
+	}
 	j = 0;
 	while (stash[i])
 		new_stash[j++] = stash[i++];
@@ -104,6 +107,12 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = extract_line(stash);
+	if (!line)
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);
+	}
 	stash = clean_stash(stash);
 	return (line);
 }
